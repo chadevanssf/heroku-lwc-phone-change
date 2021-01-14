@@ -1,0 +1,16 @@
+{
+    "modules": [
+        {
+            "dir": "src/client/modules"
+        },
+        {
+            "npm": "lightning-base-components"
+        },
+        {
+            "npm": "@salesforce-ux/design-system"
+        },
+        {
+            "npm": "lwc-recipes-oss-ui-components"
+        }
+    ]
+}

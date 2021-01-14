@@ -1,0 +1,29 @@
+<template>
+    <section class="content container page-background">
+        <ui-navbar
+            nav-items={navigationItems}
+            selected-item={currentNavigationItem}
+            oncategorychange={handleCategoryChange}
+        >
+        </ui-navbar>
+
+        <article class="container">
+            <div>
+                <template if:true={navigationItems.hello.visible}>
+                    <my-app></my-app>
+                </template>
+                <template if:true={navigationItems.phonechange.visible}>
+                    <my-phone-change-form
+                        title="Hello, please update your phone"
+                    ></my-phone-change-form>
+                </template>
+                <ui-navfooter
+                    label-next={nextNavigationItem}
+                    label-previous={previousNavigationItem}
+                    onnextclicked={handleNavigateNext}
+                    onpreviousclicked={handleNavigatePrevious}
+                ></ui-navfooter>
+            </div>
+        </article>
+    </section>
+</template>

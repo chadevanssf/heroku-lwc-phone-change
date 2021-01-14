@@ -1,0 +1,39 @@
+{
+    "name": "lwc-oss-phone-updater",
+    "description": "Phone Changer for Heroku Connect with LWC OSS",
+    "repository": "https://github.com/chadevanssf/lwc-oss-phone-updater",
+    "keywords": ["LWC", "LWC OSS"],
+    "scripts": {},
+    "formation": {
+        "web": {
+            "quantity": 1
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        }
+    ],
+    "env": {
+        "NODE_ENV": {
+            "description": "Node.js variable that determines if this is production or something else, one of 'production', 'test', or 'development'",
+            "value": "development"
+        },
+        "HEROKU_CONNECT_SCHEMA": {
+            "description": "Heroku Connect requires a schema for the Heroku Postgres, and defaults to 'salesforce'",
+
+            "value": "salesforce"
+        }
+    },
+    "environments": {
+        "test": {
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "scripts": {
+                "test": "yarn test:unit"
+            }
+        }
+    }
+}

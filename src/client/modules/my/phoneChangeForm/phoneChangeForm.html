@@ -1,0 +1,53 @@
+<template>
+    <!-- Custom Form -->
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon
+                icon-name="utility:connected_apps"
+                size="small"
+            ></lightning-icon>
+            {title}
+        </h3>
+        <div slot="footer">
+            <lightning-button
+                label="Submit"
+                variant="brand"
+                onclick={handleUpdateData}
+            >
+            </lightning-button>
+        </div>
+        <div class="slds-p-horizontal_small">
+            <div class="slds-grid slds-wrap slds-grid_vertical">
+                <lightning-input
+                    name="firstName"
+                    label="First Name"
+                    required
+                    value={firstName}
+                    onchange={handleInputOnChange}
+                ></lightning-input>
+                <lightning-input
+                    name="lastName"
+                    label="Last Name"
+                    required
+                    value={lastName}
+                    onchange={handleInputOnChange}
+                ></lightning-input>
+                <lightning-input
+                    name="email"
+                    label="Email"
+                    required
+                    value={email}
+                    onchange={handleInputOnChange}
+                ></lightning-input>
+                <lightning-input
+                    name="phone"
+                    label="Phone Number"
+                    required
+                    value={phone}
+                    onchange={handleInputOnChange}
+                ></lightning-input>
+            </div>
+        </div>
+    </lightning-card>
+    <ui-toast class="modal-alert"></ui-toast>
+</template>

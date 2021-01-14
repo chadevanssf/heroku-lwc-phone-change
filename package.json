@@ -1,0 +1,81 @@
+{
+    "name": "lwc-phone-changer",
+    "description": "My amazing LWC app",
+    "version": "0.0.1",
+    "author": "Chad Evans",
+    "bugs": "https://github.com/chadevanssf/lwc-phone-changer/issues",
+    "dependencies": {
+        "@salesforce-ux/design-system": "^2.13.7",
+        "compression": "^1.7.4",
+        "express": "^4.17.1",
+        "helmet": "^4.3.1",
+        "lightning-base-components": "^1.11.1-alpha",
+        "pg": "^8.5.1"
+    },
+    "devDependencies": {
+        "eslint": "^7.17.0",
+        "husky": "^4.3.7",
+        "lint-staged": "^10.5.3",
+        "lwc-recipes-oss-ui-components": "^0.3.2",
+        "lwc-services": "^2.3.1",
+        "npm-run-all": "^4.1.5",
+        "per-env": "^1.0.2",
+        "prettier": "^2.2.1"
+    },
+    "engines": {
+        "node": ">=10.13.0",
+        "npm": ">=6.4.1",
+        "yarn": ">=1.9.4"
+    },
+    "homepage": "https://github.com/chadevanssf/lwc-phone-changer",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "keywords": [
+        "lwc",
+        "heroku",
+        "heroku connect",
+        "lwc oss"
+    ],
+    "license": "MIT",
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,ts,yaml,yml}": [
+            "prettier --write"
+        ],
+        "./src/**/*.js": [
+            "eslint"
+        ]
+    },
+    "nodemonConfig": {
+        "watch": [
+            "src/server/**/*.js"
+        ],
+        "ext": "js",
+        "ignore": [
+            "src/**/*.spec.js",
+            "src/**/*.test.js"
+        ],
+        "exec": "node ./src/server/api.js"
+    },
+    "repository": "chadevanssf/lwc-phone-changer",
+    "scripts": {
+        "build": "per-env",
+        "build:production": "lwc-services build -m production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
+        "serve": "run-p serve:client serve:api",
+        "serve:api": "node src/server/api.js",
+        "serve:client": "node scripts/server.js",
+        "test:unit": "lwc-services test:unit",
+        "test:unit:coverage": "lwc-services test:unit --coverage",
+        "test:unit:debug": "lwc-services test:unit --debug",
+        "test:unit:watch": "lwc-services test:unit --watch",
+        "watch": "API_MODE=separate run-p watch:client watch:server",
+        "watch:client": "lwc-services watch",
+        "watch:server": "nodemon"
+    }
+}
